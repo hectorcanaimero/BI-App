@@ -1,0 +1,37 @@
+<div class="row w-100 mx-0 auth-page">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-4 pe-md-0">
+          <div class="auth-side-wrapper bg-image" style="background-image: url(../../../../assets/images/login.jpeg)"></div>
+        </div>
+        <div class="col-md-8 ps-md-0">
+          <div class="auth-form-wrapper px-4 py-5">
+            <a routerLink="." class="nobleui-logo d-block mb-2">Dados<span>BI</span></a>
+            <form class="forms-sample" [formGroup]="form">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+              </div>
+              <div class="mb-2">
+                <label for="pwd" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="pwd" autocomplete="current-password" placeholder="senha" formControlName="password">
+              </div>
+              <div style="height: 35px;">
+                <p class="mb-0 text-danger">{{ message }}</p>
+              </div>
+              <div>
+                <button [disabled]="form.invalid" class="btn btn-primary me-2 mb-2 mb-md-0" (click)="onSubmit()">Acessar</button>
+              </div>
+              <button class="btn btn-unlink d-block mt-3 text-muted" (click)="forgotPassword()">Esqueci minha senha</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="load">
+  <app-loading message="Validando usuário"></app-loading>
+</ng-container>
+

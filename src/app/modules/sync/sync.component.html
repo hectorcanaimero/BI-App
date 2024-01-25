@@ -1,0 +1,84 @@
+<!-- <app-breadcrumb source="Sync" [items]="['Home']"></app-breadcrumb> -->
+<div class="row">
+  <div class="col-xl-12 main-content ps-xl-4 pe-xl-5">
+    <h1 class="page-title border-bottom pb-2 mb-4">Sincronizar de contas no Power BI</h1>
+    <div class="row">
+      <div class="col-md-4 col-xl-3 stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Adicionar Conta</h6>
+            <form class="forms-sample" [formGroup]="form">
+              <div class="mb-3">
+                <label for="nome" class="form-label">Nome da conta</label>
+                <input type="text" class="form-control" id="nome" placeholder="Conta do Power BI" formControlName="nameAccount">
+              </div>nome
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="exemplo@hotmail.com" formControlName="email">
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="pwd" autocomplete="off" placeholder="Password" formControlName="pass">
+              </div>
+              <div class="mb-3">
+                <label for="clientId" class="form-label">client Id</label>
+                <input type="text" class="form-control" id="clientId" placeholder="Client ID" formControlName="clientId">
+              </div>
+              <div class="mb-3">
+                <label for="clientSecret" class="form-label">Client Secret</label>
+                <input type="password" class="form-control" id="clientSecret" autocomplete="off" placeholder="Client Secret" formControlName="clientSecret">
+              </div>
+              <div class="mb-3">
+                <label for="tenantId" class="form-label">Tenant Id</label>
+                <input type="text" class="form-control" id="tenantId" placeholder="Tenant Id" formControlName="tenantId">
+              </div>
+              <button class="btn btn-primary me-2" [disabled]="form.invalid" (click)="onSubmit()">Adicionar</button>
+              <button type="reset" class="btn btn-secondary">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-xl-9 stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Contas
+              <span class="float-right">
+                <button class="btn btn-unlink" (click)="onSync()">
+                  <i class="feather icon-refresh-cw text-success me-2"></i>
+                </button>
+              </span>
+            </h6>
+            <div class="table-responsive">
+              <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th style="width: 8%">Status</th>
+                    <th style="width: 8%">Apagar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let account of accounts$ | async">
+                    <tr>
+                      <td>{{ account.nameAccount }}</td>
+                      <td>{{ account.email }}</td>
+                      <td class="text-center">
+                        <i class="mdi mdi-checkbox-blank-circle text-success"></i>
+                      </td>
+                      <td class="text-center">
+                        <button class="btn btn-unlink btn-sm" (click)="onTrash(account._id)">
+                          <i class="feather icon-trash-2 text-danger me-2"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

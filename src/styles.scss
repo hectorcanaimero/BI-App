@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+// Global icon font
+@import "./assets/fonts/feather/style.css";
+
+
+// // 3rd party plugins
+@import "@mdi/font/css/materialdesignicons.min.css";
+@import "perfect-scrollbar/css/perfect-scrollbar.css";
+@import "highlight.js/styles/googlecode.css";
+@import "ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css";
+@import "ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css";
+@import "animate.css/animate.min.css";
+@import "@ng-select/ng-select/themes/default.theme.css";
+@import "metismenujs/scss/metismenujs";
+@import "dropzone/dist/min/dropzone.min.css";
+@import "quill/dist/quill.snow.css";
+@import "angular-archwizard/styles/archwizard.css";
+@import "simple-datatables/dist/style.css";
+@import "@swimlane/ngx-datatable/index.css";
+@import "@swimlane/ngx-datatable/themes/bootstrap.css";
+@import "@swimlane/ngx-datatable/assets/icons.css";
+
+
+// NobleUI styles for LTR
+@import "./assets/scss/style";
+
+
+// NobleUI styles For RTL
+// @import "./assets/scss/style.rtl.css";
+
+
+.nobleui-logo {
+  font-weight: 500;
+  span {
+    font-weight: 700;
+    color: rgb(244, 106, 26);
+  }
+}
+
+
+.sidebar-dark .sidebar .sidebar-body .sidebar-nav .nav-item .nav-link {
+  color: #a9b2c3 !important;
+}
+
+.sidebar-dark .sidebar .sidebar-body .sidebar-nav .nav-item .nav-link:hover,
+.sidebar-dark .sidebar .sidebar-body .sidebar-nav .nav-item .nav-link .link-icon:hover {
+  color: rgb(244, 106, 26) !important;
+}
+
+.sidebar-dark .sidebar .sidebar-body .sidebar-nav .nav-item:hover > .nav-link .link-title, .sidebar-dark .sidebar .sidebar-body .sidebar-nav .nav-item.mm-active > .nav-link .link-title {
+  color: rgb(244, 106, 26) !important;
+}
+
+.sidebar .sidebar-body .sidebar-nav .nav-item.mm-active > .nav-link .link-icon{
+  color: rgb(244, 106, 26) !important;
+}
+
+.main-wrapper .page-wrapper .page-content {
+  flex-grow: 1;
+  padding: 25px;
+  margin-top: 10px !important;
+}

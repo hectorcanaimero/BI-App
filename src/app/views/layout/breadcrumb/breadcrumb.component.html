@@ -1,0 +1,8 @@
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink=".">{{ source }}</a></li>
+    <ng-container *ngIf="items.length > 0">
+      <li class="breadcrumb-item active" aria-current="page" *ngFor="let item of items">{{ item }}</li>
+    </ng-container>
+  </ol>
+</nav>

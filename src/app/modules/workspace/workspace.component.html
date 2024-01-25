@@ -1,0 +1,32 @@
+<ng-container *ngIf="(workspaces$ | async) as ws">
+  <div class="row">
+    <div class="col-xl-12 main-content ps-xl-4 pe-xl-5">
+      <h2 class="page-title border-bottom pb-2 mb-4"><strong>WS: </strong>{{ (group$ | async) | titlecase }}</h2>
+      <div class="row">
+        <ng-container *ngFor="let item of ws.report || ws">
+          <ng-container *ngIf="item.length > 0; else REPORT">
+            <div class="col-xl-4 col-xxl-3 mb-4">
+              <div class="card" style="height: 120px">
+                <div class="card-body">
+                  <h6 class="card-title mb-3">{{ item[0].name }}</h6>
+                  <button (click)="goToReport(ws.groupIdPB, item[0])" class="btn btn-primary">Ir ao Relatorio</button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #REPORT>
+            <div class="col-xl-4 col-xxl-3 mb-4">
+              <div class="card" style="height: 120px">
+                <div class="card-body">
+                  <h6 class="card-title mb-3">{{ item.name }}</h6>
+                  <button (click)="goToReport(ws.groupIdPB, item)" class="btn btn-primary">Ir ao Relatorio</button>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+</ng-container>

@@ -1,0 +1,25 @@
+.user {
+  margin-top: 20px;
+  text-align: center;
+  .avatar {
+    margin-bottom: 15px;
+    height: 80px;
+    img {
+      background-color: #fefefe;
+      border: 3px solid #fafafa;
+      border-radius: 50px;
+      max-height: 80px;
+      height: 100%;
+      width: auto;
+    }
+  }
+  h4 {
+    color: #fafafa;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: .8rem;
+    color: #c3c3c3;
+    font-style: italic;
+  }
+}

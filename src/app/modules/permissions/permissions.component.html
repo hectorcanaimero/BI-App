@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-xl-12 main-content ps-xl-4 pe-xl-5">
+    <h1 class="page-title border-bottom pb-2 mb-4">Permissões</h1>
+    <div class="card">
+      <div class="card-body">
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-6 col-lg-4">
+            <select class="form-select" (change)="getUser($event)">
+              <option selected>Selecione o Usuário</option>
+              <option *ngFor="let user of users$ | async" [value]="user._id">{{ user.email }}</option>
+            </select>
+          </div>
+          <div class="col-md-3 col-lg-2">
+            <button type="button" class="btn btn-primary" (click)="onSubmit()"
+              [disabled]="form.invalid">Salvar</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <ngb-accordion [closeOthers]="true" activeIds="static-0">
+              <ngb-panel *ngFor="let workspace of workspaces$ | async; let i =index;" id="static-{{ i }}" [title]="workspace.name | titlecase">
+                <ng-template ngbPanelContent>
+                  <div class="row">
+                    <ng-container *ngFor="let report of workspace.report">
+                      <div class="col-6">
+                        <form [formGroup]="form">
+                          <input class="form-check-input" type="checkbox" [value]="report.reportIdPB"  (change)="onCheckboxChange($event)" [id]="report.reportIdPB">
+                          <label class="ms-2 form-check-label" [for]="report.reportIdPB">{{ report.name | titlecase }}</label>
+                        </form>
+                        <div class="form-check mb-1">
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="load">
+  <app-loading message="Validando usuário"></app-loading>
+</ng-container>

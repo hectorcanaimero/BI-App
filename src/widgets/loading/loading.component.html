@@ -1,0 +1,14 @@
+<ng-container *ngIf="fullScreen; else normal">
+  <section class="fullScreen">
+    <div class="spinner-grow text-warning" role="status"></div>
+    <p class="message">{{ message }}</p>
+  </section>
+</ng-container>
+<ng-template #normal>
+  <section>
+    <div class="spinner-grow text-warning" role="status"></div>
+    <p class="message">{{ message }}</p>
+  </section>
+</ng-template>
+
+
